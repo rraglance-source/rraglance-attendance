@@ -14,6 +14,7 @@ const attendanceSchema = new mongoose.Schema(
       type: Date,
       required: true,
     },
+
     punchOutTime: {
       type: Date,
       default: null,
@@ -44,6 +45,7 @@ const attendanceSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+
     workedHours: {
       type: Number,
       default: 0,
@@ -55,4 +57,3 @@ const attendanceSchema = new mongoose.Schema(
 );
 
 export default mongoose.model("Attendance", attendanceSchema);
-
