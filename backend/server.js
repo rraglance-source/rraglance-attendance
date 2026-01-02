@@ -37,3 +37,12 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
+// ✅ Health check API
+app.get("/api/health", (req, res) => {
+  res.status(200).json({
+    status: "OK",
+    service: "Attendance Backend",
+    uptime: process.uptime(),
+    timestamp: new Date()
+  });
+});
