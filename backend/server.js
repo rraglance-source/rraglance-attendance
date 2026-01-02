@@ -25,6 +25,14 @@ app.get("/", (req, res) => {
   res.send("Backend running ✅");
 });
 
+app.get("/api/health", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+    db: mongoose.connection.readyState === 1 ? "connected" : "not connected",
+    timestamp: new Date().toISOString()
+  });
+});
+
 // 8️⃣ MongoDB connection
 mongoose
   .connect(process.env.MONGO_URI)
